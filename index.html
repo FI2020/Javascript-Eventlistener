@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    </style>
+
+    <script>
+    window.addEventListener('load', aufruf);
+    function aufruf(){
+        var pNodeEins = document.getElementById("textElement1");
+        pNodeEins.style.color = "red";
+        //pNodes.style.background-color = "black";
+        var pNodes = document.getElementsByTagName("p");
+        pNodes[0].style.color = "yellow";
+        pNodes[1].style.color = "green";
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {      // Dokument muss erst vollständig geladen sein...
+        var eingabeform = document.getElementById('eingabeformular');
+        var button=document.getElementById('clickme');
+        var pNodes = document.getElementsByTagName("p");            // (das andere pNodes war ausserhalb des scopes)
+
+        button.addEventListener("click", function() {               // eventhandler auf das form-Element
+            //event.preventDefault();                               // verhindert das absenden (und neuladen der Seite)
+            pNodes[2].innerHTML = eingabeform.elements[0].value;    // übergibt den Inhalt des ersten form-Elements
+            pNodes[2].style.color = "red";
+        });
+    }, false);
+    </script>
+    <meta charset="UTF-8">
+    <title>Meine Website</title>
+</head>
+<body>
+    <img src ="">
+    <p id ="textElement1">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt lorem enim, eget fringilla turpis congue vitae. Phasellus aliquam nisi ut lorem vestibulum est.
+        | Blindtext | Nulla ut arcu non nisi congue venenatis vitae ut ante. Nam iaculis sem nec ultrices dapibus. | Frank Kreif | Phasellus eu ultrices turpis.
+        | Frank Rößler | Vivamus non mollis lacus, non ullamcorper nisl. | Referenzen | Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+        Phasellus sit amet scelerisque ipsum.
+    </p>
+    <p>
+        | Kontakt | Morbi nulla dolor, adipiscing non convallis rhoncus, ornare sed risus. Sed adipiscing eget nibh at convallis.
+        | Impressum | Curabitur eu gravida mauris, sit amet dictum metus.
+        Sed a elementum arcu. Proin consectetur eros vitae odio sagittis, vitae dignissim justo sollicitudin. Phasellus non varius lacus, aliquet feugiat mauris.
+    </p>
+    <p>
+    </p>
+    <h2>The input Element</h2>
+    <form id="eingabeformular">
+        <label for="eingabe">Meine Eingabe:</label>
+        <input id="eingabe" type="text"><br><br>
+        <button id="clickme" type="button" value="submit">click mich!</button>
+    </form>
+</body>
+</html>
